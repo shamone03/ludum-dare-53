@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Lamppost_Emitter
+    second: {fileID: 2100000, guid: ff6ca13ddd1f46c42bac50a527933948, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Road
     second: {fileID: 2100000, guid: 8a0f880dfe7877c48a6bf5953ff5f0a8, type: 2}
   materials:
