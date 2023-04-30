@@ -40,9 +40,6 @@ public class CarController : MonoBehaviour {
     [SerializeField] private bool isBraking;
     [SerializeField] private bool flipCar;
 
-    private void Start() {
-        Debug.Log(rb.centerOfMass.x + ", " + rb.centerOfMass.y + ", " + rb.centerOfMass.z);
-    }
 
     private void GetInput() {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -52,7 +49,7 @@ public class CarController : MonoBehaviour {
     }
 
     private void Accelerate() {
-        Debug.Log("Accelerating");
+        // Debug.Log("Accelerating");
         if (rb.velocity.magnitude > maxSpeed) {
             currentMotorForce = 0;
         } else {
@@ -66,7 +63,7 @@ public class CarController : MonoBehaviour {
     }
 
     private void Brake() {
-        Debug.Log("Braking");
+        // Debug.Log("Braking");
         brakeInput = isBraking ? 1 : 0;
         if (isBraking) {
             rearLeftCollider.motorTorque = 0;
@@ -80,9 +77,9 @@ public class CarController : MonoBehaviour {
 
     private void Steer() {
         if (horizontalInput > 0) {
-            Debug.Log("Steering Right");
+            // Debug.Log("Steering Right");
         } else {
-            Debug.Log("Steering Left");
+            // Debug.Log("Steering Left");
         }
         frontLeftCollider.steerAngle = maxSteerAngle * horizontalInput;
         frontRightCollider.steerAngle = maxSteerAngle * horizontalInput;
