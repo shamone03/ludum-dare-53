@@ -39,7 +39,11 @@ public class CarController : MonoBehaviour {
     [SerializeField] private float brakeInput;
     [SerializeField] private bool isBraking;
     [SerializeField] private bool flipCar;
-    
+
+    private void Start() {
+        Debug.Log(rb.centerOfMass.x + ", " + rb.centerOfMass.y + ", " + rb.centerOfMass.z);
+    }
+
     private void GetInput() {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
