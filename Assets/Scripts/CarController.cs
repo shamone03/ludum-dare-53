@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CarController : MonoBehaviour {
+
+    [Header("Grounded")] 
+    [SerializeField] private bool frontLeft;
+    [SerializeField] private bool frontRight;
+    [SerializeField] private bool rearLeft;
+    [SerializeField] private bool rearRight;
+    
     [Header("Wheel Colliders")]
     [SerializeField] private WheelCollider frontLeftCollider;
     [SerializeField] private WheelCollider frontRightCollider;
@@ -17,6 +24,7 @@ public class CarController : MonoBehaviour {
     [SerializeField] private Transform rearRightTransform;
 
     [Header("Car values")] 
+    [SerializeField] private float currentMotorForce;
     [SerializeField] private float motorForce = 1500;
     [SerializeField] private float brakeForce = 10000;
     [SerializeField] private float maxSteerAngle = 45;
@@ -24,31 +32,33 @@ public class CarController : MonoBehaviour {
     
     [Space]
     [SerializeField] private Rigidbody rb;
-
-    [SerializeField] private float rbSpeed;
     
-    private float horizontalInput;
-    private float verticalInput;
+    [Header("Input")]
+    [SerializeField] private float horizontalInput;
+    [SerializeField] private float verticalInput;
     [SerializeField] private float brakeInput;
-    private bool isBraking;
-
+    [SerializeField] private bool isBraking;
+    [SerializeField] private bool flipCar;
     
     private void GetInput() {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         isBraking = Input.GetButton("Jump");
+        flipCar = Input.GetKeyDown(KeyCode.F);
     }
 
     private void Accelerate() {
         Debug.Log("Accelerating");
         if (rb.velocity.magnitude > maxSpeed) {
-            motorForce = 0;
+            currentMotorForce = 0;
         } else {
-            motorForce = 1500;
+            currentMotorForce = motorForce;
         }
         
-        rearLeftCollider.motorTorque = motorForce * verticalInput;
-        rearRightCollider.motorTorque = motorForce * verticalInput;
+        rearLeftCollider.motorTorque = currentMotorForce * verticalInput;
+        rearRightCollider.motorTorque = currentMotorForce * verticalInput;
+        frontLeftCollider.motorTorque = currentMotorForce * verticalInput;
+        frontRightCollider.motorTorque = currentMotorForce * verticalInput;
     }
 
     private void Brake() {
@@ -60,6 +70,8 @@ public class CarController : MonoBehaviour {
         }
         frontRightCollider.brakeTorque = brakeForce * brakeInput;
         frontLeftCollider.brakeTorque = brakeForce * brakeInput;
+        rearLeftCollider.brakeTorque = brakeForce * brakeInput;
+        rearRightCollider.brakeTorque = brakeForce * brakeInput;
     }
 
     private void Steer() {
@@ -80,12 +92,23 @@ public class CarController : MonoBehaviour {
         wheelTransform.rotation = rot;
     }
 
+    private void FlipCar() {
+        if (flipCar) {
+            transform.rotation = Quaternion.identity;
+        }
+    }
+
     public void Update() {
         GetInput();
+        FlipCar();
         UpdateWheelTransforms(frontLeftCollider, frontLeftTransform);
         UpdateWheelTransforms(frontRightCollider, frontRightTransform);
         UpdateWheelTransforms(rearLeftCollider, rearLeftTransform);
         UpdateWheelTransforms(rearRightCollider, rearRightTransform);
+        frontLeft = frontLeftCollider.isGrounded;
+        frontRight = frontRightCollider.isGrounded;
+        rearLeft = rearLeftCollider.isGrounded;
+        rearRight = rearRightCollider.isGrounded;
         Accelerate();
         Brake();
         Steer();
