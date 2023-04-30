@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Patient : MonoBehaviour
 {
@@ -8,13 +9,13 @@ public class Patient : MonoBehaviour
     [SerializeField] public int currentHealth;
 
 
-    private HealthBar healthBar;
+    public HealthBar healthBar;
 
     void Start() {
-        StartCoroutine(DamagePatient());
         currentHealth = maxHealth;
-        //healthBar = UIController.instance.healthSlider.GetComponent<HealthBar>();
-        //healthBar.SetMaxHealth(maxHealth);
+        StartCoroutine(DamagePatient());
+        healthBar = UIController.instance.healthSlider.GetComponent<HealthBar>();
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -30,19 +31,19 @@ public class Patient : MonoBehaviour
     {
         //call grunt noise
         currentHealth -= damage;
-        //healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
 
         if(currentHealth <= 0)
         {
             //end game / round / reset / lose / whatever we're doing for this
+            Destroy(gameObject);
         }
     }
     IEnumerator DamagePatient() {
         while (true) {
-            //Debug.Log("Patient Hurt");
+            Debug.Log("Patient Hurt");
             TakeDamage(1);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
         }
     }
-    
 }
