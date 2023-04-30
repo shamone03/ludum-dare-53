@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 3983833700044842776}
   - component: {fileID: 3983833700044842779}
   - component: {fileID: 3983833700044842778}
+  - component: {fileID: 445256632}
   m_Layer: 0
   m_Name: Caravan
   m_TagString: Untagged
@@ -404,6 +405,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1048496, y: 3.7607584, z: 9.699569}
   m_Center: {x: 1.179339, y: 0.73968434, z: -2.8145661}
+--- !u!114 &445256632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4324224235495456162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fa74fec61e356489f50abc387f4066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontLeftCollider: {fileID: 6796273636275380359}
+  frontRightCollider: {fileID: 6796273636109570925}
+  frontLeftTransform: {fileID: 6291978889373573810}
+  frontRightTransform: {fileID: 7884992118664683361}
 --- !u!1 &4669999729558148846
 GameObject:
   m_ObjectHideFlags: 0
