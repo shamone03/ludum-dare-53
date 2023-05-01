@@ -115,5 +115,7 @@ public class CarController : MonoBehaviour {
         Accelerate();
         Brake();
         Steer();
+        
+        UIController.instance.SetSpeed(Mathf.RoundToInt(rb.velocity.magnitude));
     }
 }
