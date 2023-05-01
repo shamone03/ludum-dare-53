@@ -8,7 +8,7 @@ public class PatientSpawner : MonoBehaviour {
 
     [SerializeField] private GameObject patient;
     [SerializeField] private GameObject currentPatient;
-    
+    [SerializeField] private GameObject patientCatcher;
     private Vector3 randomMin = new Vector3(0, 0, 0);
     private Vector3 randomMax = new Vector3(0, 0, 0);
     private Vector3 randomPoint = new Vector3(0, 0, 0);
@@ -40,6 +40,7 @@ public class PatientSpawner : MonoBehaviour {
                 randomPoint.y = Random.Range(randomMin.y, randomMax.y);
                 randomPoint.z = Random.Range(randomMin.z, randomMax.z);
                 currentPatient = Instantiate(patient, randomPoint, Random.rotation);
+                patientCatcher.GetComponent<PatientCatcher>().SetNextPatient(currentPatient.transform);
             }
             yield return new WaitForSeconds(1f);
         }

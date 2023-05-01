@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patient: {fileID: 1429650140221504357, guid: 9518a9ecb6a83b442a3b7f9c01eb05d7, type: 3}
   currentPatient: {fileID: 0}
+  patientCatcher: {fileID: 0}
 --- !u!65 &4842007290704128462
 BoxCollider:
   m_ObjectHideFlags: 0

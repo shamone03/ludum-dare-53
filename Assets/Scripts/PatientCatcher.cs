@@ -6,7 +6,9 @@ using UnityEngine;
 public class PatientCatcher : MonoBehaviour {
     [SerializeField] private Transform entryPoint;
     [SerializeField] private GameObject currentPatient;
+    private Transform nextPatient;
     [SerializeField] private bool caught;
+    [SerializeField] private Transform arrow;
     private Collider collider;
 
     private void Start() {
@@ -22,9 +24,24 @@ public class PatientCatcher : MonoBehaviour {
         }
     }
 
+    public void SetNextPatient(Transform patient) {
+        nextPatient = patient;
+    }
+
     private void Update() {
         caught = currentPatient != null && collider.bounds.Contains(currentPatient.transform.position);
         if (!caught) currentPatient = null;
         if (currentPatient == null) caught = false;
+
+        if (!caught) {
+            if (nextPatient != null) {
+                arrow.gameObject.SetActive(true);
+                arrow.LookAt(nextPatient);
+                arrow.Rotate(new Vector3(1, 0, 0), 90f);
+            }
+        }
+        else {
+            arrow.gameObject.SetActive(false);
+        }
     }
 }

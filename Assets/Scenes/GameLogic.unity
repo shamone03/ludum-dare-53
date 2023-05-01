@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2163.0742, g: 2270.3281, b: 3303.6367, a: 1}
+  m_IndirectSpecularColor: {r: 2184.8262, g: 2327.0605, b: 3483.7695, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4650,6 +4650,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436473600}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1461941438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 341965183, guid: 1fac567ac22c72d4a9628f93100a9f9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733973460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1470109328
 GameObject:
   m_ObjectHideFlags: 0
@@ -6617,6 +6623,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4842007290704128433, guid: bb852c51912fdc04a90a8489d30c718e,
+        type: 3}
+      propertyPath: patientCatcher
+      value: 
+      objectReference: {fileID: 1461941438}
     - target: {fileID: 4842007290704128435, guid: bb852c51912fdc04a90a8489d30c718e,
         type: 3}
       propertyPath: m_RootOrder
