@@ -15,7 +15,7 @@ public class PatientCatcher : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (!caught && currentPatient == null && other.gameObject.CompareTag("head")) {
+        if (!caught && currentPatient == null && other.gameObject.CompareTag("Patient")) {
             currentPatient = other.gameObject;
             Debug.Log("Patient in range");
             other.gameObject.GetComponentInParent<Patient>().Move(entryPoint.position);
