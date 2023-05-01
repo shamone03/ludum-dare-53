@@ -24,7 +24,7 @@ public class PatientCatcher : MonoBehaviour {
         }
     }
 
-    public void NotifyAboutNextPatient(Transform patient) {
+    public void SetNextPatient(Transform patient) {
         nextPatient = patient;
     }
 
@@ -35,9 +35,13 @@ public class PatientCatcher : MonoBehaviour {
 
         if (!caught) {
             if (nextPatient != null) {
+                arrow.gameObject.SetActive(true);
                 arrow.LookAt(nextPatient);
                 arrow.Rotate(new Vector3(1, 0, 0), 90f);
             }
+        }
+        else {
+            arrow.gameObject.SetActive(false);
         }
     }
 }

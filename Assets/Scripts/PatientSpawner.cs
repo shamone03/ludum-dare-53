@@ -40,7 +40,7 @@ public class PatientSpawner : MonoBehaviour {
                 randomPoint.y = Random.Range(randomMin.y, randomMax.y);
                 randomPoint.z = Random.Range(randomMin.z, randomMax.z);
                 currentPatient = Instantiate(patient, randomPoint, Random.rotation);
-                patientCatcher.GetComponent<PatientCatcher>().NotifyAboutNextPatient(currentPatient.transform);
+                patientCatcher.GetComponent<PatientCatcher>().SetNextPatient(currentPatient.transform);
             }
             yield return new WaitForSeconds(1f);
         }
