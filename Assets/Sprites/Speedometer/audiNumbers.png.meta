@@ -112,15 +112,15 @@ TextureImporter:
         y: 0
         width: 429
         height: 428
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39397ab7c7e54744f98aba3d69a04641
-      internalID: -1354410682
+      spriteID: 7c3b6bb79b5ddf24ab205de4f1a3df0d
+      internalID: -918134241
       vertices: []
       indices: 
       edges: []
@@ -132,16 +132,16 @@ TextureImporter:
         x: 449
         y: 146
         width: 49
-        height: 215
+        height: 218
       alignment: 9
-      pivot: {x: 0.5102041, y: 0.9023256}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f8d3fb2390a37748a5bb27eb427ba8f
-      internalID: 497210982
+      spriteID: bc1980e08c2bc424f8d2e33230eaa03f
+      internalID: -1535099321
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: effafee794ef8b04296e80e0917abdb7
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      audiNumbers_0: -1354410682
-      audiNumbers_1: 497210982
+      audiNumbers_0: -918134241
+      audiNumbers_1: -1535099321
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
