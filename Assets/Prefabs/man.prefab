@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7485454132741314539}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 2240060241225311963}
   - component: {fileID: 2240060241225311962}
   - component: {fileID: 2240060241225311960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head.R
-  m_TagString: Untagged
+  m_TagString: head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 6757789366214145080}
   - component: {fileID: 6757789366214145081}
   - component: {fileID: 6757789366214145079}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rightfoot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1773560182107611615}
   - component: {fileID: -2461455700213954025}
-  m_Layer: 0
+  - component: {fileID: 1348005583}
+  - component: {fileID: 1348005582}
+  m_Layer: 6
   m_Name: man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,8 +280,8 @@ Transform:
   m_GameObject: {fileID: 1429650140221504357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.38, y: 9.18, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.31, y: 1.31, z: 1.31}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7218186926911058241}
   - {fileID: 3237337186268363450}
@@ -299,7 +301,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  damagePerSecond: 10
+  head: {fileID: 7200167621789381051}
+--- !u!54 &1348005583
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429650140221504357}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!138 &1348005582
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429650140221504357}
+  m_ConnectedBody: {fileID: 2240060240621967141}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &1484544552641655888
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3237337186268363450}
   - component: {fileID: 7765951114211247018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +446,7 @@ GameObject:
   - component: {fileID: 2240060240911379983}
   - component: {fileID: 2240060240911379985}
   - component: {fileID: 2240060240911379982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: righthip.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +557,7 @@ GameObject:
   - component: {fileID: 2240060240476769720}
   - component: {fileID: 2240060240476769722}
   - component: {fileID: 2240060240476769723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left hip.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +668,7 @@ GameObject:
   - component: {fileID: 2240060242133443995}
   - component: {fileID: 2240060242133443994}
   - component: {fileID: 2240060242133443992}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right elbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +779,7 @@ GameObject:
   - component: {fileID: 2240060240611680658}
   - component: {fileID: 2240060240611680661}
   - component: {fileID: 2240060240611680659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: leftknee.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3438096562038290004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: leftelbow_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,7 +918,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3402699488640476903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rightshoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,9 +952,9 @@ GameObject:
   - component: {fileID: 356425757894555173}
   - component: {fileID: 2240060240621967141}
   - component: {fileID: 2240060240621967140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pelvis
-  m_TagString: Untagged
+  m_TagString: Patient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -982,7 +1016,7 @@ GameObject:
   - component: {fileID: 2240060240763405564}
   - component: {fileID: 2240060240763405566}
   - component: {fileID: 2240060240763405567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1127,7 @@ GameObject:
   - component: {fileID: 2240060240763082500}
   - component: {fileID: 2240060240763082503}
   - component: {fileID: 2240060240763082501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rightknee.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1201,7 +1235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5144593669478783014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right elbow_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1235,7 +1269,7 @@ GameObject:
   - component: {fileID: 2240060240296953964}
   - component: {fileID: 2240060240296953966}
   - component: {fileID: 2240060240296953967}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: middlespine.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1347,7 +1381,7 @@ GameObject:
   - component: {fileID: 5254573082495677737}
   - component: {fileID: 5254573082495677738}
   - component: {fileID: 5254573082495677736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1455,7 +1489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6536767145096582249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: leftshoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1487,7 +1521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2762382285487823194}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left foot.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1555,7 @@ GameObject:
   - component: {fileID: 2240060241534879468}
   - component: {fileID: 2240060241534879471}
   - component: {fileID: 2240060241534879469}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: leftelbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1629,7 +1663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4519094147415324777}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rightfoot.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1663,7 +1697,7 @@ GameObject:
   - component: {fileID: 2240060240751994637}
   - component: {fileID: 2240060240751994639}
   - component: {fileID: 2240060240751994636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1771,7 +1805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7218186926911058241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}

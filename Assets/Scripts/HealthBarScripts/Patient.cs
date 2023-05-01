@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,44 +6,52 @@ using UnityEngine.SceneManagement;
 
 public class Patient : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] public int currentHealth;
+    [SerializeField] private float maxHealth = 100;
+    [SerializeField] private float damagePerSecond = 10;
+    public float currentHealth { get; private set; }
 
-
-    public HealthBar healthBar;
+    [SerializeField] private Transform head;
+    private HealthBar healthBar;
 
     void Start() {
-        currentHealth = maxHealth;
-        StartCoroutine(DamagePatient());
         healthBar = UIController.instance.healthSlider.GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
+        currentHealth = maxHealth;
+        StartCoroutine(DamagePatient());
     }
 
-    void Update()
-    {
-        //nothing to do
-    }
-     void FixedUpdate()
-    {
+    // private void Update() {
+    //     transform.position = head.position - transform.position
+    // }
 
-    }
 
-    public void TakeDamage(int damage)
-    {
-        //call grunt noise
+    public void Move(Vector3 here) {
+        transform.position = here;
+    }
+    
+    public void TakeDamage(float damage) {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-
-        if(currentHealth <= 0)
-        {
-            //end game / round / reset / lose / whatever we're doing for this
-            Destroy(gameObject);
+        if (UIController.instance == null) {
+            Debug.Log("instance null");
         }
+        if (UIController.instance.healthSlider == null) {
+            Debug.Log("health slider null");
+        }
+        
+        healthBar.SetHealth(currentHealth);
+        if (currentHealth <= 0) {
+            // StopCoroutine(DamagePatient());
+            Destroy(this.gameObject);
+        }
+
     }
+
     IEnumerator DamagePatient() {
         while (true) {
             Debug.Log("Patient Hurt");
-            TakeDamage(1);
+
+            TakeDamage(damagePerSecond);
+
             yield return new WaitForSeconds(1);
         }
     }

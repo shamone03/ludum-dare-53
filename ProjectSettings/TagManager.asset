@@ -4,15 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Patient
+  - Obstacle
   - head
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Caravan
   - Water
   - UI
-  - 
+  - Patient
   - 
   - 
   - 
