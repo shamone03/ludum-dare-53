@@ -9,7 +9,7 @@ public class GameLogic : MonoBehaviour {
     
     public void PatientDelivered(Patient patient) {
         score += patient.currentHealth;
-        UIController.instance.timer.text = score + "";
+        UIController.instance.score.text = score + "";
     }
 
     public void StartTimer() {
