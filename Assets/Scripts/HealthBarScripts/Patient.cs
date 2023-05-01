@@ -8,7 +8,7 @@ public class Patient : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private float damagePerSecond = 10;
-    [SerializeField] public float currentHealth;
+    public float currentHealth { get; private set; }
 
     [SerializeField] private Transform head;
     private HealthBar healthBar;
