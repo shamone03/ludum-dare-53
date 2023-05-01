@@ -6958,6 +6958,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2479316268303405173, guid: fb616d89bd7f65640a386ea713072726,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 44.013668
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479316268303405173, guid: fb616d89bd7f65640a386ea713072726,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 42.909103
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479316268303405173, guid: fb616d89bd7f65640a386ea713072726,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 36.381653
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479316268303405173, guid: fb616d89bd7f65640a386ea713072726,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.20721821
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479316268303405173, guid: fb616d89bd7f65640a386ea713072726,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 2.3131866
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479316268303405173, guid: fb616d89bd7f65640a386ea713072726,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 5.482404
+      objectReference: {fileID: 0}
     - target: {fileID: 2730013154559226899, guid: fb616d89bd7f65640a386ea713072726,
         type: 3}
       propertyPath: m_RootOrder
