@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour {
     [SerializeField] public Slider healthSlider;
     [SerializeField] public TMP_Text score;
 
-    private void Awake() {
+    private void Start() {
         instance = this;
     }
 }

@@ -6,30 +6,38 @@ using UnityEngine.SceneManagement;
 
 public class Patient : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] public int currentHealth;
+    [SerializeField] private float maxHealth = 100;
+    [SerializeField] private float damagePerSecond = 10;
+    [SerializeField] public float currentHealth;
 
     [SerializeField] private Transform head;
-    public HealthBar healthBar;
+    private HealthBar healthBar;
 
     void Start() {
+        healthBar = UIController.instance.healthSlider.GetComponent<HealthBar>();
+        healthBar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
+        StartCoroutine(DamagePatient());
     }
 
     // private void Update() {
     //     transform.position = head.position - transform.position
     // }
 
-    public Rigidbody GetHandle() {
-        return head.GetComponent<Rigidbody>();
-    }
 
     public void Move(Vector3 here) {
         transform.position = here;
     }
     
-    public void TakeDamage(int damage) {
+    public void TakeDamage(float damage) {
         currentHealth -= damage;
+        if (UIController.instance == null) {
+            Debug.Log("instance null");
+        }
+        if (UIController.instance.healthSlider == null) {
+            Debug.Log("health slider null");
+        }
+        
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0) {
             // StopCoroutine(DamagePatient());
@@ -42,7 +50,7 @@ public class Patient : MonoBehaviour
         while (true) {
             Debug.Log("Patient Hurt");
 
-            TakeDamage(1);
+            TakeDamage(damagePerSecond);
 
             yield return new WaitForSeconds(1);
         }

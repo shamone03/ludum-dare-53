@@ -31,9 +31,9 @@ public class PatientSpawner : MonoBehaviour {
             randomMin = randomCollider.bounds.min;
             
             
-            if (currentPatient != null && currentPatient.GetComponent<Patient>().currentHealth <= 0) {
-                Destroy(currentPatient);
-            }
+            // if (currentPatient != null && currentPatient.GetComponent<Patient>().currentHealth <= 0) {
+            //     Destroy(currentPatient);
+            // }
             if (currentPatient == null) {
                 Debug.Log("Patient Spawned");
                 randomPoint.x = Random.Range(randomMin.x, randomMax.x);

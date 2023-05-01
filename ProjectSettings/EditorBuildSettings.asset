@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 62e3a21c3c20f4aa58397d81ae2907af
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ConnectCarToTrailer.unity
     guid: 61434a604d785b54489686856f72677b
+  - enabled: 1
+    path: Assets/Scenes/GameLogic.unity
+    guid: d0b3e03dd8da4ef4b99dfbf25651019d
   m_configObjects: {}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1.7702206, g: 1.8359227, b: 2.1552136, a: 1}
+  m_IndirectSpecularColor: {r: 2163.0742, g: 2270.3281, b: 3303.6367, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2420,6 +2420,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670991760}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &680853600 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3983833700044842779, guid: 1fac567ac22c72d4a9628f93100a9f9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733973460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &722988388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,6 +2627,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 394263115, guid: 40ce3268beaf3f449afb1d12a0b8ffdf, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 680853600}
+    - target: {fileID: 394263115, guid: 40ce3268beaf3f449afb1d12a0b8ffdf, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.071834
+      objectReference: {fileID: 0}
+    - target: {fileID: 394263115, guid: 40ce3268beaf3f449afb1d12a0b8ffdf, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -1.6599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 394263115, guid: 40ce3268beaf3f449afb1d12a0b8ffdf, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 3.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5995340446216417024, guid: 40ce3268beaf3f449afb1d12a0b8ffdf,
         type: 3}
       propertyPath: m_RootOrder
