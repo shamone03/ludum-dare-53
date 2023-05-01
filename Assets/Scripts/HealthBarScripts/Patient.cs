@@ -2,16 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Patient : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
     [SerializeField] public int currentHealth;
+
     [SerializeField] private Transform head;
-    private HealthBar healthBar;
+    public HealthBar healthBar;
 
     void Start() {
-        StartCoroutine(DamagePatient());
         currentHealth = maxHealth;
     }
 
@@ -34,14 +35,16 @@ public class Patient : MonoBehaviour
             // StopCoroutine(DamagePatient());
             Destroy(this.gameObject);
         }
+
     }
 
     IEnumerator DamagePatient() {
         while (true) {
             Debug.Log("Patient Hurt");
-            TakeDamage(20);
+
+            TakeDamage(1);
+
             yield return new WaitForSeconds(1);
         }
     }
-
 }
