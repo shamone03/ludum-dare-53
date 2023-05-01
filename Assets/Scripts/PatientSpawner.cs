@@ -7,12 +7,12 @@ using Random = UnityEngine.Random;
 public class PatientSpawner : MonoBehaviour {
 
     [SerializeField] private GameObject patient;
-    [SerializeField] private float xMin, xMax, yMin, yMax, zMin, zMax;
+    [SerializeField] private GameObject currentPatient;
+    
     private Vector3 randomMin = new Vector3(0, 0, 0);
     private Vector3 randomMax = new Vector3(0, 0, 0);
     private Vector3 randomPoint = new Vector3(0, 0, 0);
     private Collider randomCollider;
-    private GameObject currentPatient;
 
     private BoxCollider[] colliders;
     private void Start() {
