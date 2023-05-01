@@ -39,7 +39,7 @@ public class CaravanController : MonoBehaviour {
             float impactForce = collision.relativeVelocity.magnitude;
             if (impactForce > maxImpactForce)
             {
-                //Debug.Log("OUCH");
+                Debug.Log("OUCH");
                 collision.gameObject.GetComponentInParent<Patient>().TakeDamage(damageAmount);
             }
         }
