@@ -34,13 +34,13 @@ public class PatientSpawner : MonoBehaviour {
             if (currentPatient != null && currentPatient.GetComponent<Patient>().currentHealth <= 0) {
                 Destroy(currentPatient);
             }
-            if (currentPatient == null) {
+            // if (currentPatient == null) {
                 Debug.Log("Patient Spawned");
                 randomPoint.x = Random.Range(randomMin.x, randomMax.x);
                 randomPoint.y = Random.Range(randomMin.y, randomMax.y);
                 randomPoint.z = Random.Range(randomMin.z, randomMax.z);
                 currentPatient = Instantiate(patient, randomPoint, Random.rotation);
-            }
+            // }
             yield return new WaitForSeconds(1f);
         }
     }
