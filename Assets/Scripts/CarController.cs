@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour {
 
@@ -115,6 +116,10 @@ public class CarController : MonoBehaviour {
         Accelerate();
         Brake();
         Steer();
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
         
         UIController.instance.SetSpeed(Mathf.RoundToInt(rb.velocity.magnitude));
     }
