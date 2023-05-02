@@ -20,6 +20,7 @@ public class PatientSpawner : MonoBehaviour {
         colliders = GetComponentsInChildren<BoxCollider>();
         randomCollider = colliders[0];
         currentPatient = Instantiate(patient);
+        patientCatcher.GetComponent<PatientCatcher>().SetNextPatient(currentPatient.transform);
         StartCoroutine(Spawner());
     }
 
