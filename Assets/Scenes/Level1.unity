@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.331, g: 2266.4922, b: 3296.3164, a: 1}
+  m_IndirectSpecularColor: {r: 2164.2432, g: 2272.5312, b: 3310.8047, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10903,6 +10903,26 @@ PrefabInstance:
     - target: {fileID: 394263115, guid: 40ce3268beaf3f449afb1d12a0b8ffdf, type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118457553451816913, guid: 40ce3268beaf3f449afb1d12a0b8ffdf,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118457554122225751, guid: 40ce3268beaf3f449afb1d12a0b8ffdf,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118457554477222326, guid: 40ce3268beaf3f449afb1d12a0b8ffdf,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118457554941393960, guid: 40ce3268beaf3f449afb1d12a0b8ffdf,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5995340446216417024, guid: 40ce3268beaf3f449afb1d12a0b8ffdf,
         type: 3}
