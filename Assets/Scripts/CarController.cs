@@ -164,6 +164,7 @@ public class CarController : MonoBehaviour {
     private void FlipCar() {
         if (flipCar) {
             transform.rotation = Quaternion.identity;
+            rb.rotation = Quaternion.identity;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }

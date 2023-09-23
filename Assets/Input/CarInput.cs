@@ -214,6 +214,17 @@ public partial class @CarInput: IInputActionCollection2, IDisposable
                     ""action"": ""Default"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e330390-0708-49a9-a42c-0025bbe4b45d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Default"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -236,6 +247,17 @@ public partial class @CarInput: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""55f6b073-9c60-4ec3-8cb6-77511f924a4a"",
                     ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Default"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2700407f-c8e9-4cf5-b4c8-9a87a376f2ab"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
