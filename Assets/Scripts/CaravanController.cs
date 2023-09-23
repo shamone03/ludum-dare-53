@@ -69,8 +69,8 @@ public class CaravanController : MonoBehaviour {
         }
         UpdateWheelTransforms(frontLeftCollider, frontLeftTransform);
         UpdateWheelTransforms(frontRightCollider, frontRightTransform);
-        frontLeftCollider.motorTorque = 0.0001f;
-        frontRightCollider.motorTorque = 0.0001f;
+        frontLeftCollider.motorTorque = 0.00001f;
+        frontRightCollider.motorTorque = 0.00001f;
     }
 
     void OnCollisionEnter(Collision collision)
