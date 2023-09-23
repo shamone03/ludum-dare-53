@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour {
@@ -40,13 +41,79 @@ public class CarController : MonoBehaviour {
     [SerializeField] private float brakeInput;
     [SerializeField] private bool isBraking;
     [SerializeField] private bool flipCar;
+    [SerializeField] private CarInput input = null;
 
+    private void Awake() {
+        input = new CarInput();
+    }
+
+    private void OnAccelerateStart(InputAction.CallbackContext value) {
+        verticalInput = value.ReadValue<float>();
+    }
+    
+    private void OnAccelerateStop(InputAction.CallbackContext value) {
+        verticalInput = 0;
+    }
+
+    private void OnSteerStart(InputAction.CallbackContext value) {
+        horizontalInput = value.ReadValue<float>();
+    }
+    
+    private void OnSteerStop(InputAction.CallbackContext value) {
+        horizontalInput = 0;
+    }
+    
+    private void OnBrakeStart(InputAction.CallbackContext value) {
+        isBraking = value.ReadValue<float>() > 0;
+    }
+
+    private void OnBrakeStop(InputAction.CallbackContext value) {
+        isBraking = false;
+    }
+
+    private void OnFlipStart(InputAction.CallbackContext value) {
+        flipCar = value.ReadValue<float>() > 0;
+    }
+    
+    private void OnFlipStop(InputAction.CallbackContext value) {
+        flipCar = false;
+    }
+    
+    private void OnEnable() {
+        input.Enable();
+        input.Acceleration.Default.performed += OnAccelerateStart;
+        input.Acceleration.Default.canceled += OnAccelerateStop;
+        input.Steering.Default.performed += OnSteerStart;
+        input.Steering.Default.canceled += OnSteerStop;
+        input.Flip.Default.performed += OnFlipStart;
+        input.Flip.Default.canceled += OnFlipStop;
+        input.Brake.Default.performed += OnBrakeStart;
+        input.Brake.Default.canceled += OnBrakeStop;
+        
+    }
+
+    private void OnDisable() {
+        input.Disable();
+        input.Acceleration.Default.performed -= OnAccelerateStart;
+        input.Acceleration.Default.canceled -= OnAccelerateStop;
+        input.Steering.Default.performed -= OnSteerStart;
+        input.Steering.Default.canceled -= OnSteerStop;
+        input.Flip.Default.performed -= OnFlipStart;
+        input.Flip.Default.canceled -= OnFlipStop;
+        input.Brake.Default.performed -= OnBrakeStart;
+        input.Brake.Default.canceled -= OnBrakeStop;
+        
+    }
 
     private void GetInput() {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-        isBraking = Input.GetButton("Jump");
-        flipCar = Input.GetKeyDown(KeyCode.F);
+        Debug.Log("accel: " + verticalInput);
+        Debug.Log("steer: " + horizontalInput);
+        Debug.Log("flip: " + flipCar);
+        Debug.Log("brake: " + isBraking);
+        // horizontalInput = Input.GetAxis("Horizontal");
+        // verticalInput = Input.GetAxis("Fire1");
+        // isBraking = Input.GetButton("Jump");
+        // flipCar = Input.GetKeyDown(KeyCode.F);
     }
 
     private void Accelerate() {
@@ -97,6 +164,7 @@ public class CarController : MonoBehaviour {
     private void FlipCar() {
         if (flipCar) {
             transform.rotation = Quaternion.identity;
+            rb.rotation = Quaternion.identity;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }

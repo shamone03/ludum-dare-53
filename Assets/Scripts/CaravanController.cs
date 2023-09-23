@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CaravanController : MonoBehaviour {
 
@@ -22,6 +23,35 @@ public class CaravanController : MonoBehaviour {
     [Header("Wheel Transforms")]
     [SerializeField] private Transform frontLeftTransform;
     [SerializeField] private Transform frontRightTransform;
+    private bool flipCar = false;
+    private CarInput input = null;
+    private Rigidbody rb = null;
+
+    private void Awake() {
+        input = new CarInput();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnFlipStart(InputAction.CallbackContext value) {
+        flipCar = value.ReadValue<float>() > 0;
+    }
+    
+    private void OnFlipStop(InputAction.CallbackContext value) {
+        flipCar = false;
+    }
+    
+    private void OnEnable() {
+        input.Enable();
+        input.Flip.Default.performed += OnFlipStart;
+        input.Flip.Default.canceled += OnFlipStop;
+    }
+
+    private void OnDisable() {
+        input.Disable();
+        input.Flip.Default.performed -= OnFlipStart;
+        input.Flip.Default.canceled -= OnFlipStop;
+    }
+
     private void UpdateWheelTransforms(WheelCollider wheelCollider, Transform wheelTransform) {
         Vector3 pos;
         Quaternion rot;
@@ -31,6 +61,12 @@ public class CaravanController : MonoBehaviour {
     }
 
     private void Update() {
+        if (flipCar) {
+            transform.rotation = Quaternion.identity;
+            rb.rotation = Quaternion.identity;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
         UpdateWheelTransforms(frontLeftCollider, frontLeftTransform);
         UpdateWheelTransforms(frontRightCollider, frontRightTransform);
         frontLeftCollider.motorTorque = 0.0001f;
